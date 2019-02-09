@@ -32,7 +32,7 @@ const generateList = function generateList() {
     taskListContainer.classList.add('has-no-items');
     return `<p class="no-tasks-message">
     You haven&apos;t set any tasks for the day.
-    <a class="add-todo-link" href="#form">Add</a>&nbsp;a&nbsp;few.
+    <a class="add-todo-link" href="#form">Add</a>&nbsp;a&nbsp;few. <br><br><small><strong>Tip</strong>: Each task should be unique and concise (32 characters at the most).</small> 
   </p>`;
   }
 
@@ -125,6 +125,8 @@ const updateTaskStatus = function updateTaskStatus(event) {
 
 // Trigger specific actions when click events occur outside the form
 const clickHandler = function performActionsOnClick(event) {
+  const noTasksMessage = document.querySelector('.no-tasks-message');
+
   if (event.target.matches('.list__delete-button')) {
     deleteTask(event);
   }
@@ -138,10 +140,15 @@ const clickHandler = function performActionsOnClick(event) {
   if (event.target.matches('.add-todo-link')) {
     event.preventDefault();
     formInput.classList.add('is-visible');
+    noTasksMessage.classList.add('is-hidden');
     formInput.focus();
   }
+
   if (event.target.matches('.title__button')) {
     formInput.classList.toggle('is-visible');
+    if (noTasksMessage && taskData.tasks.length < 1) {
+      noTasksMessage.classList.toggle('is-hidden');
+    }
     formInput.focus();
   }
 

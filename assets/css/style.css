@@ -30,11 +30,7 @@
 body {
   font-family: Roboto, sans-serif;
   background: -webkit-gradient(linear, left top, right top, from(#eaecc6), to(#2bc0e4));
-  background: linear-gradient(
-    to right,
-    #eaecc6,
-    #2bc0e4
-  ); 
+  background: linear-gradient(to right, #eaecc6, #2bc0e4);
 }
 h1 {
   padding: 10px 0 0 22px;
@@ -69,6 +65,16 @@ button {
 @media (min-width: 25.5em) {
   .container {
     width: 22.5em;
+  }
+}
+
+span {
+  min-width: 30ch;
+  padding-left: 22px;
+}
+@media (min-width: 25.5em) {
+  span {
+    padding-left: 0;
   }
 }
 span.done {
@@ -238,13 +244,17 @@ form {
 }
 
 li {
+  position: relative;
   display: flex;
   align-items: center;
 }
 
 .list__delete-button {
-  width: 0;
+  width: 44px;
   height: 44px;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
@@ -259,6 +269,12 @@ li {
   -webkit-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
+@media (min-width: 25.5em) {
+  .list__delete-button {
+    width: 0;
+    position: static;
+  }
+}
 
 .list__delete-icon {
   pointer-events: none;
@@ -271,6 +287,10 @@ li:hover .list__delete-button {
 #form__input.is-visible {
   opacity: 1;
   display: block;
+}
+/* .has-no-items  */
+.no-tasks-message.is-hidden {
+  display: none;
 }
 @-webkit-keyframes fadeOut {
   from {
