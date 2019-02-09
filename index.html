@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>To-Do List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/solid.css"
+      integrity="sha384-r/k8YTFqmlOaqRkZuSiE9trsrDXkh07mRaoGBMoDcmA58OHILZPsk29i2BsFng1B"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/fontawesome.css"
+      integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+"
+      crossorigin="anonymous"
+    />
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="title">
+          <h1 class="title__text">To-Do List</h1>
+          <button class="title__button" title="Add task">
+            <i class="title__icon fas fa-plus"></i>
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="todo-elements">
+          <div class="form-container">
+            <form id="form">
+              <label class="screen-reader" for="form__input">Enter task name and description</label>
+              <input type="text" id="form__input" placeholder="Enter a task..." />
+              <div class="form__error-message">
+                This task is already in the list. Please add any other task.
+              </div>
+              <!-- <button class="form__button" title="Add task">
+                <i class="title__icon fas fa-plus"></i>
+              </button> -->
+            </form>
+          </div>
+          <div class="task-list-container has-no-items"></div>
+        </div>
+      </main>
+    </div>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
